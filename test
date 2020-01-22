@@ -273,3 +273,45 @@ void main()
  }
  getch();
 }
+
+----------------
+line program:
+----------------
+#include<stdio.h>
+#include<graphics.h>
+void main()
+{
+ int gd=DETECT,gm;
+ initgraph(&gd,&gm,"C:\\TurboC3\\BGI");
+
+ setlinestyle(0,0,2);
+ line(100,100,200,200);
+ outtextxy(100,200,"solid line");
+
+ setlinestyle(1,0,2);
+ line(300,300,400,400);
+ outtextxy(300,400,"dotted line");
+
+ setlinestyle(2,0,1);
+ line(100,100,200,200);
+ outtextxy(150,250,"center line");
+
+ getch();
+}
+
+---------------------
+setfillstyle program
+---------------------
+#include<stdio.h>
+#include<graphics.h>
+void main()
+{
+ int gd=DETECT,gm;
+ initgraph(&gd,&gm,"C:\\TurboC3\\BGI");
+
+ setfillstyle(SOLID_FILL,RED);
+ circle(50,50,150);
+ floodfill(50,50,WHITE);
+
+ getch();
+}
