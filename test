@@ -411,3 +411,56 @@ void scaling()
   line(x2*sx,y2*sy,x3*sx,y3*sy);
   line(x3*sx,y3*sy,x1*sx,y1*sy);
 }
+
+-----------------
+Rotation program
+-----------------
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+
+void draw();
+void rotation();
+int x1,y1,x2,y2,x3, y3;
+
+
+void main()
+{
+  int gd=DETECT,gm;
+  initgraph(&gd,&gm,"C:\\TurboC3\\BGI");
+
+   printf("enter the x1 and y1 values:");
+   scanf("%d%d",&x1,&y1);
+   printf("enter the x2 and y2 values:");
+   scanf("%d%d",&x2,&y2);
+   printf("enter the x3 and y3 values:");
+   scanf("%d%d",&x3,&y3);
+
+  draw();
+  getch();
+  rotation();
+
+}
+
+void draw()
+{
+ line(x1,y1,x2,y2);
+ line(x2,y2,x3,y3);
+ line(x3,y3,x1,y1);
+
+}
+
+void rotation()
+{
+   int a;
+   printf("enter the angle of rotation:");
+   scanf("%d",&a);
+
+   a=a*(3.1416/180);
+   x1=(x1*cos(a)-y1*sin(a));
+   y1=(x1*sin(a)+y1*cos(a));
+   x2=(x2*cos(a)-y2*sin(a));
+   y2=(x2*sin(a)+y2*cos(a));
+   x3=(x3*cos(a)-y3*sin(a));
+   y3=(x3*sin(a)+y3*cos(a));
+}
