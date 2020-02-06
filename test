@@ -315,3 +315,99 @@ void main()
 
  getch();
 }
+
+--------------------
+Translation program
+--------------------
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+
+void draw();
+void translate();
+int x1,y1,x2,y2,x3, y3;
+
+
+void main()
+{
+  int gd=DETECT,gm;
+  initgraph(&gd,&gm,"C:\\TurboC3\\BGI");
+
+   printf("enter the x1 and y1 values:");
+   scanf("%d%d",&x1,&y1);
+   printf("enter the x2 and y2 values:");
+   scanf("%d%d",&x2,&y2);
+   printf("enter the x3 and y3 values:");
+   scanf("%d%d",&x3,&y3);
+
+  draw();
+  getch();
+  translate();
+
+}
+
+void draw()
+{
+ line(x1,y1,x2,y2);
+ line(x2,y2,x3,y3);
+ line(x3,y3,x1,y1);
+}
+
+void translate()
+{
+  int tx,ty;
+  printf("Enter the trans vector");
+  scanf("%d%d",&tx,&ty);
+  setcolor(RED);
+  line(x1+tx,y1+ty,x2+tx,y2+ty);
+  line(x2+tx,y2+ty,x3+tx,y3+ty);
+  line(x3+tx,y3+ty,x1+tx,y1+ty);
+}
+
+----------------
+scaling program
+----------------
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+
+void draw();
+void scaling();
+int x1,y1,x2,y2,x3, y3;
+
+
+void main()
+{
+  int gd=DETECT,gm;
+  initgraph(&gd,&gm,"C:\\TurboC3\\BGI");
+
+   printf("enter the x1 and y1 values:");
+   scanf("%d%d",&x1,&y1);
+   printf("enter the x2 and y2 values:");
+   scanf("%d%d",&x2,&y2);
+   printf("enter the x3 and y3 values:");
+   scanf("%d%d",&x3,&y3);
+
+  draw();
+  getch();
+  scaling();
+
+}
+
+void draw()
+{
+ line(x1,y1,x2,y2);
+ line(x2,y2,x3,y3);
+ line(x3,y3,x1,y1);
+}
+
+void scaling()
+{
+  int sx,sy;
+  printf("Enter the scaling vector");
+  scanf("%d%d",&sx,&sy);
+  setcolor(RED);
+  line(x1*sx,y1*sy,x2*sx,y2*sy);
+  line(x2*sx,y2*sy,x3*sx,y3*sy);
+  line(x3*sx,y3*sy,x1*sx,y1*sy);
+}
